@@ -158,6 +158,14 @@ public class GUI extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         jLabel1.setText("you clicked new game");
+        
+        // Creation d'une fenetre
+        Newgame frame = new Newgame();
+
+        // On fixe la taille de la fenetre au minimum pour contenir tous les
+        // composants
+        frame.pack();
+        frame.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
