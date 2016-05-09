@@ -108,5 +108,30 @@ public class Grid {
             }
         }
     }
+    
+    public void afficher() {
+        String resultat= "";
+        for (int i = 0; i < getHeight(); i++) {
+            for (int j = 0; j < getWidth(); j++) {
+                switch (grid[i][j].getState()) {
+                    case WAFFLE:
+                        resultat += "0";
+                        break;
+                    case EATEN:
+                        resultat += "1";
+                        break;
+                    case POISON:
+                        resultat += "X";
+                        break;
+                    default:
+                        resultat += "?";
+                }
+            }
+            
+            resultat += "\n";
+        }
+        System.out.println(resultat);
+    }
+    
 
 }
