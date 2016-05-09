@@ -31,6 +31,8 @@ public class WaffleGame implements Game{
     public WaffleGame(int x, int y, RealLifePlayer[] p){
         this.grid = new Grid(x,y);
         this.players = p;
+        this.cancelList = new Stack<>();
+        this.redoList = new Stack<>();
     }
     
     @Override
@@ -101,6 +103,7 @@ public class WaffleGame implements Game{
         this.eatWaffle(c);
         this.cancelList.add(this.grid.toString());
         this.redoList.clear();
+        this.grid.afficher();
         return this.winCheck();
     }
     
