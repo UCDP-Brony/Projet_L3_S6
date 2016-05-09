@@ -22,6 +22,8 @@ interface Game
         bool winCheck();
       
     class Grid
+      final int width;
+      final int height;
       Case[][] grid;
       
       public :
