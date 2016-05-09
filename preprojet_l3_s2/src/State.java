@@ -9,7 +9,7 @@
  * @author Seawolf
  */
 public enum State {
-    LIBRE,
-    MANGE,
+    WAFFLE,
+    EATEN,
     POISON;
 }
