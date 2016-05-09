@@ -13,7 +13,7 @@ package Core;
 public interface Game {
     public void cancel();
     public void redo();
-    public void save();
-    public void load();
+    public void save(String filePath);
+    public void load(String filePath);
     public void play();
 }

@@ -1,7 +1,15 @@
 package Core;
 
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.util.Scanner;
 import java.util.Stack;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -40,15 +48,42 @@ public class WaffleGame implements Game{
     }
 
     @Override
-    public void save() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void save(String filePath) {
+        String toSave = "";
+        toSave += this.cancelList.size()+"\n";
+        toSave += this.redoList.size()+"\n";
+        for(int i = 0; i < this.cancelList.size(); i++){
+            toSave += this.cancelList.get(i)+"\n";
+        }
+        for(int i = 0; i < this.redoList.size(); i++){
+            toSave += this.redoList.get(i)+"\n";
+        }
+        toSave += this.grid.toString();
+        
+        try (Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filePath), "utf-8"))) {
+            writer.write(toSave);
+        } catch (IOException ex) {
+            Logger.getLogger(WaffleGame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
-    public void load() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void load(String filePath) {
+        Scanner sc = new Scanner(filePath);
+        this.cancelList.clear();
+        this.redoList.clear();
+        int clSize = Integer.parseInt(sc.nextLine());
+        int rdSize = Integer.parseInt(sc.nextLine());
+        for (int i = 0; i < clSize; i++){
+            this.cancelList.add(sc.nextLine());
+        }
+        for (int i = 0; i < rdSize; i++){
+            this.redoList.add(sc.nextLine());
+        }
+        this.grid.load(sc.nextLine());
     }
 
+    
     @Override
     public void play() {
         boolean finished = false;
@@ -65,6 +100,7 @@ public class WaffleGame implements Game{
         System.out.println("Player "+(idNextPlayer+1)+" chosed "+c.getX()+", "+c.getY()+".");        
         this.eatWaffle(c);
         this.cancelList.add(this.grid.toString());
+        this.redoList.clear();
         return this.winCheck();
     }
     
