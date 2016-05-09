@@ -1,19 +1,14 @@
-package Core;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Core;
 
 /**
  *
  * @author TheDoctor
  */
-class Player {
-
-    Coordonate play() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+public interface Player {
+    public Coordonate play(Grid grid);
 }
