@@ -32,13 +32,13 @@ interface Game
       State state;
       public:
         State getState();
-        void setState();
+        void setState(State);
     
     Enum State;
     
     Class Coordonate
-      int x;
-      int y;
+      final int x;
+      final int y;
       public :
         getX();
         getY();
