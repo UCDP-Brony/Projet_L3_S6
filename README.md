@@ -27,6 +27,8 @@ interface Game
       Case[][] grid;
       
       public :
+        int getWidth();
+        int getHeight();
         State getStateAtCase(Coordonate c);
         void setStateAtCase(Coordonate c, State);
       
