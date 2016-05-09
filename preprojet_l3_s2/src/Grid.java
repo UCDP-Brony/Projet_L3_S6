@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
 /*
  * La grille des joueurs
  */
@@ -7,9 +10,9 @@
  * @author Seawolf
  */
 public class Grid {
-    Case[][] grid;
-    final int width;
-    final int height;
+    private Case[][] grid;
+    private int width;
+    private int height;
     
     public Grid(){
         this(6,4);
@@ -28,6 +31,14 @@ public class Grid {
     public int getHeight(){
         return this.height;
     }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
     
     public State getStateAtCase(Coordonate c){
         return grid[c.getX()][c.getY()].getState();
@@ -39,9 +50,31 @@ public class Grid {
     
     @Override
     public String toString(){
-        return("0");
+        String resultat = getWidth() + " " + getHeight();
+        for (int i=0; i<getWidth(); i++) {
+            resultat += " ";
+            for (int j=0; j<getHeight(); j++)
+                switch (grid[i][j].getState()) {
+                case WAFFLE:
+                    resultat += "0";
+                    break;
+                case EATEN:
+                    resultat += "1";
+                    break;
+                case POISON:
+                    resultat += "X";
+                    break;
+                default:
+                    resultat += "?";
+                }
+        }
+        return resultat;
     }
     void load(String textGrid){
+        Scanner s = new Scanner(textGrid);
+        setWidth(s.nextInt());
+        setHeight(s.nextInt());
+        this.grid = new Case[getWidth()][getHeight()];
         
     }
     
