@@ -16,9 +16,9 @@ public class ImagePanel extends JComponent {
     public ImagePanel() {
         try {
             
-            avail = ImageIO.read(new File("/home/d/ducruyy/projet_l3_s2/preprojet_l3_s2/src/img/available.png"));
-            eaten = ImageIO.read(new File("/home/d/ducruyy/projet_l3_s2/preprojet_l3_s2/src/img/eaten.png"));
-            poison = ImageIO.read(new File("/home/d/ducruyy/projet_l3_s2/preprojet_l3_s2/src/img/poison.png"));
+            avail = ImageIO.read(new File("./src/img/available.png"));
+            eaten = ImageIO.read(new File("./src/img/eaten.png"));
+            poison = ImageIO.read(new File("./src/img/poison.png"));
 
             System.out.println("pouet");
 
@@ -28,7 +28,6 @@ public class ImagePanel extends JComponent {
         }
 
         grille = new Grid(5, 3);
-        this.repaint();
     }
 
     @Override
