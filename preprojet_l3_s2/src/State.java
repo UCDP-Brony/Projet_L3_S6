@@ -10,5 +10,6 @@
  */
 public enum State {
     LIBRE,
-    MANGE;
+    MANGE,
+    POISON;
 }
