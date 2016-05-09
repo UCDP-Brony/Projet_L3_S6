@@ -1,5 +1,11 @@
 # Projet_L3_S6
 
+
+#Les gars, on déchire tout !
+#On a le moteur qui marche, il ne reste qu'à faire les IA et finir l'IHM !
+#On est largement dans les temps, et c'est génial.
+#Continuons comme ça !
+
 interface Player
   Coordonate play(Grid grid);
   
