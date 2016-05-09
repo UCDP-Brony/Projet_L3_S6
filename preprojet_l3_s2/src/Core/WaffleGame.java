@@ -24,11 +24,11 @@ import java.util.logging.Logger;
 public class WaffleGame implements Game{
 
     private Grid grid;
-    private Player[] players;
+    private RealLifePlayer[] players;
     private Stack<String> cancelList;
     private Stack<String> redoList;
     
-    public WaffleGame(int x, int y, Player[] p){
+    public WaffleGame(int x, int y, RealLifePlayer[] p){
         this.grid = new Grid(x,y);
         this.players = p;
     }
@@ -96,7 +96,7 @@ public class WaffleGame implements Game{
     
     private boolean playATurn(int idNextPlayer){
         System.out.println("Player "+(idNextPlayer+1)+" is playing.");
-        Coordonate c = this.players[idNextPlayer].play();
+        Coordonate c = this.players[idNextPlayer].play(this.grid);
         System.out.println("Player "+(idNextPlayer+1)+" chosed "+c.getX()+", "+c.getY()+".");        
         this.eatWaffle(c);
         this.cancelList.add(this.grid.toString());
