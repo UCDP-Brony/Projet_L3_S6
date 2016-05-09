@@ -1,4 +1,4 @@
-
+package Core;
 import java.util.Scanner;
 
 /*
@@ -79,3 +79,4 @@ public class Grid {
     }
     
 }
+

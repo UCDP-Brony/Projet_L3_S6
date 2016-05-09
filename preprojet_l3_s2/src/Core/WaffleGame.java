@@ -1,3 +1,8 @@
+package Core;
+
+
+import java.util.Stack;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,6 +17,8 @@ public class WaffleGame implements Game{
 
     private Grid grid;
     private Player[] players;
+    private Stack<String> cancelList;
+    private Stack<String> redoList;
     
     public WaffleGame(int x, int y, Player[] p){
         this.grid = new Grid(x,y);
@@ -20,12 +27,16 @@ public class WaffleGame implements Game{
     
     @Override
     public void cancel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String temp = this.cancelList.pop();
+        this.grid.load(this.cancelList.peek());
+        this.redoList.add(temp);
     }
 
     @Override
     public void redo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String temp = this.redoList.pop();
+        this.grid.load(this.redoList.peek());
+        this.cancelList.add(temp);
     }
 
     @Override
@@ -50,22 +61,23 @@ public class WaffleGame implements Game{
     
     private boolean playATurn(int idNextPlayer){
         System.out.println("Player "+(idNextPlayer+1)+" is playing.");
-        Coordonate c = players[idNextPlayer].play();
+        Coordonate c = this.players[idNextPlayer].play();
         System.out.println("Player "+(idNextPlayer+1)+" chosed "+c.getX()+", "+c.getY()+".");        
         this.eatWaffle(c);
+        this.cancelList.add(this.grid.toString());
         return this.winCheck();
     }
     
     private void eatWaffle(Coordonate c){
-        for(int i = c.getX(); i < grid.getWidth(); i++){
-            for(int j = c.getY(); j < grid.getHeight(); j++){
-                grid.setStateAtCase(new Coordonate(i,j),State.EATEN);
+        for(int i = c.getX(); i < this.grid.getWidth(); i++){
+            for(int j = c.getY(); j < this.grid.getHeight(); j++){
+                this.grid.setStateAtCase(new Coordonate(i,j),State.EATEN);
             }                
         }
     }
     
     private boolean winCheck(){
-        return(grid.getStateAtCase(new Coordonate(0,1)) == State.EATEN && grid.getStateAtCase(new Coordonate(1,0)) == State.EATEN); // TODO
+        return(this.grid.getStateAtCase(new Coordonate(0,1)) == State.EATEN && this.grid.getStateAtCase(new Coordonate(1,0)) == State.EATEN); // TODO
     }
     
 }

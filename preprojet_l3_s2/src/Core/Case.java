@@ -1,3 +1,5 @@
+package Core;
+
 /*
  * Case, une case de la grille
  */
