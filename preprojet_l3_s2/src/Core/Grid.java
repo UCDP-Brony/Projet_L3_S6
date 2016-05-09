@@ -1,3 +1,5 @@
+package Core;
+
 /*
  * La grille des joueurs
  */
