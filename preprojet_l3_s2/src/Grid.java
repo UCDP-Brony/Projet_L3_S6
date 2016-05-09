@@ -29,6 +29,20 @@ public class Grid {
         return this.height;
     }
     
+    public State getStateAtCase(Coordonate c){
+        return grid[c.getX()][c.getY()].getState();
+    }
     
+    public void setStateAtCase(Coordonate c, State s){
+        grid[c.getX()][c.getY()].setState(s);
+    }
+    
+    @Override
+    public String toString(){
+        return("0");
+    }
+    void load(String textGrid){
+        
+    }
     
 }
