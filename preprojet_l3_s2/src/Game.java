@@ -6,10 +6,12 @@
 
 /**
  *
- * @author Seawolf
+ * @author TheDoctor
  */
-public enum State {
-    WAFFLE,
-    EATEN,
-    POISON;
+public interface Game {
+    public void cancel();
+    public void redo();
+    public void save();
+    public void load();
+    public void play();
 }
