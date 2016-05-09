@@ -31,6 +31,8 @@ interface Game
         int getHeight();
         State getStateAtCase(Coordonate c);
         void setStateAtCase(Coordonate c, State);
+        String toString();
+        void load(String textGrid);
       
     class Case
       State state;
