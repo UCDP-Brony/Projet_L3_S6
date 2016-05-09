@@ -29,7 +29,7 @@ public class Grid {
     private void fillGrid() {
         for (int i = 0; i < this.getWidth(); i++) {
             for (int j = 0; j < this.getHeight(); j++) {
-                setStateAtCase(new Coordonate(i, j), State.WAFFLE);
+                grid[i][j] = new Case(State.WAFFLE);
             }
         }
         setStateAtCase(new Coordonate(0, 0), State.POISON);
