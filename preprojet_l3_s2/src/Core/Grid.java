@@ -51,9 +51,9 @@ public class Grid {
     @Override
     public String toString(){
         String resultat = getWidth() + " " + getHeight();
-        for (int i=0; i<getWidth(); i++) {
+        for (int i=0; i<getHeight(); i++) {
             resultat += " ";
-            for (int j=0; j<getHeight(); j++)
+            for (int j=0; j<getWidth(); j++)
                 switch (grid[i][j].getState()) {
                 case WAFFLE:
                     resultat += "0";
@@ -75,8 +75,27 @@ public class Grid {
         setWidth(s.nextInt());
         setHeight(s.nextInt());
         this.grid = new Case[getWidth()][getHeight()];
-        
+        for (int i=0; i<getHeight(); i++) {
+            String ligne;
+            ligne = s.next();
+            for (int j=0; j<getWidth(); j++)
+                switch (ligne.charAt(j)) {
+                case '0':
+                    grid[i][j].setState(State.WAFFLE);
+                    break;
+                case '1':
+                    grid[i][j].setState(State.EATEN);
+                    break;
+                case 'X':
+                    grid[i][j].setState(State.POISON);
+                    break;
+                default:
+                    grid[i][j].setState(State.WAFFLE);
+                }
+        }
     }
-    
+        
 }
+    
+
 
