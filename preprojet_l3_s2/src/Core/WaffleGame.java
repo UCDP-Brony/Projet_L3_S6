@@ -24,11 +24,11 @@ import java.util.logging.Logger;
 public class WaffleGame implements Game{
 
     private Grid grid;
-    private RealLifePlayer[] players;
+    private Player[] players;
     private Stack<String> cancelList;
     private Stack<String> redoList;
     
-    public WaffleGame(int x, int y, RealLifePlayer[] p){
+    public WaffleGame(int x, int y, Player[] p){
         this.grid = new Grid(x,y);
         this.players = p;
         this.cancelList = new Stack<>();

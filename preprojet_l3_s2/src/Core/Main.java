@@ -17,9 +17,10 @@ public class Main {
      */
     
     public static void main(String[] args) {
-        RealLifePlayer[] t = new RealLifePlayer[2];
+        Player[] t = new Player[2];
         RealLifePlayer p1 = new RealLifePlayer();
-        RealLifePlayer p2 = new RealLifePlayer();
+        PlayerIAEasy p2 = new PlayerIAEasy();
+        //RealLifePlayer p2 = new RealLifePlayer();
         t[0] = p1;
         t[1] = p2;
         Game g = new WaffleGame(6,6,t);

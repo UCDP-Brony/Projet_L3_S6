@@ -19,7 +19,7 @@ class RealLifePlayer implements Player{
         Scanner sc = new Scanner(System.in);
         int x = Integer.MAX_VALUE;
         int y = Integer.MAX_VALUE;
-        while(x > grid.getWidth() || y > grid.getHeight() || grid.getStateAtCase(new Coordonate(x,y)) == State.EATEN){
+        while(x >= grid.getWidth() || y >= grid.getHeight() || grid.getStateAtCase(new Coordonate(x,y)) == State.EATEN){
             System.out.println("\nEntrez une abscisse : \n");
             while(!sc.hasNextInt()) {
                 sc.next();
