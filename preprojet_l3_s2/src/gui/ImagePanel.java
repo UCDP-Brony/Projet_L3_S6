@@ -43,13 +43,13 @@ public class ImagePanel extends JComponent {
         for (int i = 0; i < grille.getWidth(); i++) {
             for (int j = 0; j < grille.getHeight(); j++) {
                 super.paintComponent(g);
-                if (grille.getStateAtCase(new Coordonate(i, j)) == State.WAFFLE) {
+                if (grille.getStateAtCase(new Coordinate(i, j)) == State.WAFFLE) {
                     g.drawImage(avail, i*100, j*100, 100, 100, null);
                 }
-                if (grille.getStateAtCase(new Coordonate(i, j)) == State.EATEN) {
+                if (grille.getStateAtCase(new Coordinate(i, j)) == State.EATEN) {
                     g.drawImage(eaten, i*100, j*100, 100, 100, null);
                 }
-                if (grille.getStateAtCase(new Coordonate(i, j)) == State.POISON) {
+                if (grille.getStateAtCase(new Coordinate(i, j)) == State.POISON) {
                     g.drawImage(poison, i*100, j*100, 100, 100, null);
                 }
             }

@@ -22,9 +22,12 @@ public class newGameListener implements MouseListener{
     }
     @Override
     public void mouseClicked(MouseEvent e) {
-        gameWindow.getImagePanel1().setGrid(Integer.parseInt(options.getjTextField1().getText()), Integer.parseInt(options.getjTextField2().getText()));
-        gameWindow.setVisible(true);
-        options.setVisible(false);
+        if(Integer.parseInt(options.getjTextField1().getText())<10 && Integer.parseInt(options.getjTextField2().getText())<10 && Integer.parseInt(options.getjTextField1().getText())>1 && Integer.parseInt(options.getjTextField2().getText())>1){
+            gameWindow.getImagePanel1().setGrid(Integer.parseInt(options.getjTextField1().getText()), Integer.parseInt(options.getjTextField2().getText()));
+            gameWindow.setVisible(true);
+            options.setVisible(false);
+        }
+        
     }
 
     @Override

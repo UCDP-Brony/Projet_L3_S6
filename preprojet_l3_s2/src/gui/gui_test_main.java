@@ -23,8 +23,9 @@ public class gui_test_main implements Runnable{
     @Override
     public void run() {
         // Creation d'une fenetre
-        GUI frame = new GUI();
         Newgame newgame = new Newgame();
+        GUI frame = new GUI(newgame);
+        
         
         newgame.setVisible(true);
         newgame.getjButton1().addMouseListener(new newGameListener(frame,newgame));
