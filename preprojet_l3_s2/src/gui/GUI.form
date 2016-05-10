@@ -157,6 +157,9 @@
           <Dimension value="[200, 200]"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">

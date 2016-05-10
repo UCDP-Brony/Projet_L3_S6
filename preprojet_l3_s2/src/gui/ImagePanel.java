@@ -27,13 +27,12 @@ public class ImagePanel extends JComponent {
             System.out.println(ex);
         }
 
-        grille = new Grid(5, 3);
+            this.grille = new Grid(2,2);
     }
 
     @Override
     public void paintComponent(Graphics g) {
         System.out.println(this);
-        System.out.println("bonjour");
         System.out.println(this.getWidth() + " / " + this.getHeight());
         Graphics2D drawer = (Graphics2D) g;
         drawer.setPaint(Color.red);
@@ -56,5 +55,11 @@ public class ImagePanel extends JComponent {
             }
         }
 
+    }
+    
+    public void setGrid(int x, int y){
+        Grid grill=new Grid(x,y);
+        this.grille=grill;
+        this.repaint();
     }
 }
