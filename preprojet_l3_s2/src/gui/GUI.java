@@ -19,6 +19,7 @@ public class GUI extends javax.swing.JFrame {
     public GUI(Newgame ng) {
         initComponents();
         this.ng = ng;
+        imagePanel1.addMouseListener(new ImagePanelListener(imagePanel1));
     }
 
     /**
