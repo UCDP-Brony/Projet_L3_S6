@@ -33,15 +33,16 @@ public class PlayerIAMedium implements Player{
         
         int x = Integer.MAX_VALUE;
         int y = Integer.MAX_VALUE;
-        while(x > grid.getWidth() || y > grid.getHeight() || grid.getStateAtCase(new Coordonate(x,y)) == State.EATEN){
+        while( (compteur<25 || isLoosingMove(new Coordonate(x,y))) || x > grid.getWidth() || y > grid.getHeight() || grid.getStateAtCase(new Coordonate(x,y)) == State.EATEN){
             x = r.nextInt(grid.getWidth());
             y = r.nextInt(grid.getHeight());
+            compteur++;
         }
         Coordonate c = new Coordonate( x,y);
         return c;
     }
     
-    
+    //retourne faux si on envoie 0,0 0,1 ou 1,0
     private boolean isLoosingMove(Coordonate c)
     {
         return((c.getX() == 0 && (c.getY()== 0 || c.getY() == 1)) || (c.getX() == 1 && c.getY() == 0));

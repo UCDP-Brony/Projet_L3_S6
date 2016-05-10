@@ -20,7 +20,7 @@ public class Main {
         Player[] t = new Player[2];
         //RealLifePlayer p1 = new RealLifePlayer();
         PlayerIAEasy p1 = new PlayerIAEasy();
-        PlayerIAEasy p2 = new PlayerIAEasy();
+        PlayerIAMedium p2 = new PlayerIAMedium();
         //RealLifePlayer p2 = new RealLifePlayer();
         t[0] = p1;
         t[1] = p2;
