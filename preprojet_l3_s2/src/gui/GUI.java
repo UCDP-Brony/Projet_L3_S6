@@ -5,6 +5,8 @@
  */
 package gui;
 
+import Core.Grid;
+
 /**
  *
  * @author ducruyy
@@ -161,12 +163,17 @@ public class GUI extends javax.swing.JFrame {
         
         // Creation d'une fenetre
         Newgame frame = new Newgame();
+        frame.addMouseListener(new newGameListener(this,frame));
 
         // On fixe la taille de la fenetre au minimum pour contenir tous les
         // composants
         frame.pack();
         frame.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    public ImagePanel getImagePanel1() {
+        return imagePanel1;
+    }
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         jLabel1.setText("you clicked save");

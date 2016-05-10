@@ -24,6 +24,10 @@ public class gui_test_main implements Runnable{
     public void run() {
         // Creation d'une fenetre
         GUI frame = new GUI();
+        Newgame newgame = new Newgame();
+        
+        newgame.setVisible(true);
+        newgame.getjButton1().addMouseListener(new newGameListener(frame,newgame));
         
         // Un clic sur le bouton de fermeture clos l'application
         frame.setDefaultCloseOperation(GUI.EXIT_ON_CLOSE);
@@ -31,7 +35,7 @@ public class gui_test_main implements Runnable{
         // On fixe la taille de la fenetre au minimum pour contenir tous les
         // composants
         frame.pack();
-        frame.setVisible(true);
+        frame.setVisible(false);
     }
     
 }
