@@ -10,5 +10,5 @@ package Core;
  * @author TheDoctor
  */
 public interface Player {
-    public Coordonate play(Grid grid);
+    public Coordinate play(Grid grid);
 }

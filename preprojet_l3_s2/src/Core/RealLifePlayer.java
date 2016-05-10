@@ -15,11 +15,11 @@ import java.util.Scanner;
 class RealLifePlayer implements Player{
 
     @Override
-    public Coordonate play(Grid grid) {        
+    public Coordinate play(Grid grid) {        
         Scanner sc = new Scanner(System.in);
         int x = Integer.MAX_VALUE;
         int y = Integer.MAX_VALUE;
-        while(x >= grid.getWidth() || y >= grid.getHeight() || grid.getStateAtCase(new Coordonate(x,y)) == State.EATEN){
+        while(x >= grid.getWidth() || y >= grid.getHeight() || grid.getStateAtCase(new Coordinate(x,y)) == State.EATEN){
             System.out.println("\nEntrez une abscisse : \n");
             while(!sc.hasNextInt()) {
                 sc.next();
@@ -31,7 +31,7 @@ class RealLifePlayer implements Player{
             }
             y = sc.nextInt();
         }
-        return new Coordonate(x,y);
+        return new Coordinate(x,y);
     }
     
 }

@@ -12,15 +12,15 @@ import java.util.Random;
 public class PlayerIAEasy implements Player{
 
     @Override
-    public Coordonate play(Grid grid) {
+    public Coordinate play(Grid grid) {
         Random r = new Random();
         int x = Integer.MAX_VALUE;
         int y = Integer.MAX_VALUE;
-        while(x > grid.getWidth() || y > grid.getHeight() || grid.getStateAtCase(new Coordonate(x,y)) == State.EATEN){
+        while(x > grid.getWidth() || y > grid.getHeight() || grid.getStateAtCase(new Coordinate(x,y)) == State.EATEN){
             x = r.nextInt(grid.getWidth());
             y = r.nextInt(grid.getHeight());
         }
-        Coordonate c = new Coordonate( x,y);
+        Coordinate c = new Coordinate( x,y);
         return c;
     }
     

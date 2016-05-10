@@ -32,7 +32,7 @@ public class Grid {
                 grid[i][j] = new Case(State.WAFFLE);
             }
         }
-        setStateAtCase(new Coordonate(0, 0), State.POISON);
+        setStateAtCase(new Coordinate(0, 0), State.POISON);
     }
 
     public int getWidth() {
@@ -51,11 +51,11 @@ public class Grid {
         this.height = height;
     }
 
-    public State getStateAtCase(Coordonate c) {
+    public State getStateAtCase(Coordinate c) {
         return grid[c.getX()][c.getY()].getState();
     }
 
-    public void setStateAtCase(Coordonate c, State s) {
+    public void setStateAtCase(Coordinate c, State s) {
         grid[c.getX()][c.getY()].setState(s);
     }
 

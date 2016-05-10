@@ -98,7 +98,7 @@ public class WaffleGame implements Game{
     
     private boolean playATurn(int idNextPlayer){
         System.out.println("Player "+(idNextPlayer+1)+" is playing.");
-        Coordonate c = this.players[idNextPlayer].play(this.grid);
+        Coordinate c = this.players[idNextPlayer].play(this.grid);
         System.out.println("Player "+(idNextPlayer+1)+" chosed "+c.getX()+", "+c.getY()+".");        
         this.eatWaffle(c);
         this.cancelList.add(this.grid.toString());
@@ -107,16 +107,16 @@ public class WaffleGame implements Game{
         return this.winCheck();
     }
     
-    private void eatWaffle(Coordonate c){
+    private void eatWaffle(Coordinate c){
         for(int i = c.getX(); i < this.grid.getWidth(); i++){
             for(int j = c.getY(); j < this.grid.getHeight(); j++){
-                this.grid.setStateAtCase(new Coordonate(i,j),State.EATEN);
+                this.grid.setStateAtCase(new Coordinate(i,j),State.EATEN);
             }                
         }
     }
     
     private boolean winCheck(){
-        return(this.grid.getStateAtCase(new Coordonate(0,1)) == State.EATEN && this.grid.getStateAtCase(new Coordonate(1,0)) == State.EATEN); // TODO
+        return(this.grid.getStateAtCase(new Coordinate(0,1)) == State.EATEN && this.grid.getStateAtCase(new Coordinate(1,0)) == State.EATEN); // TODO
     }
     
 }

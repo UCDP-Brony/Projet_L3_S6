@@ -12,38 +12,38 @@ import java.util.Random;
 public class PlayerIAMedium implements Player{
 
     @Override
-    public Coordonate play(Grid grid) {
+    public Coordinate play(Grid grid) {
         Random r = new Random();
         int compteur = 0;
-        if ((grid.getStateAtCase(new Coordonate(0,1)) == State.EATEN) && grid.getStateAtCase(new Coordonate(1,0)) == State.EATEN)
+        if ((grid.getStateAtCase(new Coordinate(0,1)) == State.EATEN) && grid.getStateAtCase(new Coordinate(1,0)) == State.EATEN)
         {
             //game over, the IA accepts its faith and commit honorable sudoku
-            return(new Coordonate(0,0));
+            return(new Coordinate(0,0));
         }
-        if ((grid.getStateAtCase(new Coordonate(0,1)) == State.EATEN))
+        if ((grid.getStateAtCase(new Coordinate(0,1)) == State.EATEN))
         {
             //The IA wins
-            return(new Coordonate(1,0));
+            return(new Coordinate(1,0));
         }
-        if (grid.getStateAtCase(new Coordonate(1,0)) == State.EATEN)
+        if (grid.getStateAtCase(new Coordinate(1,0)) == State.EATEN)
         {
             //the IA wins
-            return(new Coordonate(0,1));
+            return(new Coordinate(0,1));
         }
         
         int x = Integer.MAX_VALUE;
         int y = Integer.MAX_VALUE;
-        while( (compteur<25 || isLoosingMove(new Coordonate(x,y))) || x > grid.getWidth() || y > grid.getHeight() || grid.getStateAtCase(new Coordonate(x,y)) == State.EATEN){
+        while( (compteur<25 || isLoosingMove(new Coordinate(x,y))) || x > grid.getWidth() || y > grid.getHeight() || grid.getStateAtCase(new Coordinate(x,y)) == State.EATEN){
             x = r.nextInt(grid.getWidth());
             y = r.nextInt(grid.getHeight());
             compteur++;
         }
-        Coordonate c = new Coordonate( x,y);
+        Coordinate c = new Coordinate( x,y);
         return c;
     }
     
     //retourne faux si on envoie 0,0 0,1 ou 1,0
-    private boolean isLoosingMove(Coordonate c)
+    private boolean isLoosingMove(Coordinate c)
     {
         return((c.getX() == 0 && (c.getY()== 0 || c.getY() == 1)) || (c.getX() == 1 && c.getY() == 0));
     }
